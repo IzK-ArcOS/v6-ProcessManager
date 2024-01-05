@@ -1,0 +1,63 @@
+#ProcessManager div.process-tree,
+#ProcessManager div.indent {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#ProcessManager div.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  border-radius: 6px;
+  gap: 10px;
+  background-color: transparent;
+}
+
+#ProcessManager div.row.selected {
+  background-color: var(--accent-transparent);
+}
+
+#ProcessManager div.row.selected:hover {
+  background-color: var(--accent-light-transparent);
+}
+
+#ProcessManager div.row:not(.header):not(.selected):hover {
+  background-color: var(--button-bg);
+}
+
+#ProcessManager div.row div.segment.name {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#ProcessManager div.row div.segment.name img {
+  height: 24px;
+}
+
+#ProcessManager div.row:not(.header) div.segment:not(.name) {
+  opacity: 0.5;
+}
+
+#ProcessManager div.row div.segment.pid {
+  width: 100px;
+}
+
+#ProcessManager div.row div.segment.app-id {
+  width: 150px;
+}
+
+#ProcessManager div.indent {
+  padding-left: 25px;
+}
+
+#ProcessManager div.row.header {
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  height: 20px;
+  margin-right: 8px;
+}

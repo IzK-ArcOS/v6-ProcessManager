@@ -1,0 +1,23 @@
+#ProcessManager div.toolbar {
+  height: 51px;
+  background-color: var(--button-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: var(--win-border);
+  padding: 0 10px;
+}
+#ProcessManager div.toolbar > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#ProcessManager div.toolbar button {
+  margin: 0;
+  height: 30px;
+}
+
+#ProcessManager div.toolbar button:not(.suggested) {
+  background-color: var(--button-glass-bg);
+}

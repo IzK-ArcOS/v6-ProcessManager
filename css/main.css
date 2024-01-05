@@ -1,3 +1,27 @@
-window#appTemplate { /* Rename appTemplate to the ID of the app */
-  color: #f0f;
+@import url("./row.css");
+@import url("./toolbar.css");
+
+window#ProcessManager > div.body {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--win-bg);
+}
+
+window#ProcessManager > div.titlebar {
+  border-bottom: var(--win-border);
+}
+
+window#ProcessManager > div.body > div.top {
+  height: calc(100% - 51px);
+  padding: 20px;
+  padding-bottom: 0;
+  padding-right: 12px;
+}
+
+window#ProcessManager > div.body > div.top div.process-tree {
+  height: calc(100% - 30px);
+  overflow-y: scroll;
+  padding-bottom: 20px;
 }
