@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { getAppById, spawnApp, spawnOverlay } from "$ts/apps";
-  import { WarningIcon } from "$ts/images/general";
+  import { getAppById, spawnOverlay } from "$ts/apps";
+  import { WarningIcon } from "$ts/images/dialog";
   import { Process } from "$ts/process";
   import { createErrorDialog } from "$ts/process/error";
-  import { appLibrary, focusedPid } from "$ts/stores/apps";
+  import { focusedPid } from "$ts/stores/apps";
   import { ProcessStack } from "$ts/stores/process";
   import { sleep } from "$ts/util";
   import { Runtime } from "../ts/runtime";
@@ -52,6 +52,7 @@
             suggested: true,
           },
         ],
+        sound: "arcos.dialog.warning",
       },
       runtime.process.pid,
       true
