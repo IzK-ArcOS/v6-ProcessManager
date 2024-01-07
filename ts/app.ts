@@ -29,5 +29,6 @@ export const ProcessManager: App = {
     minimize: false,
     maximize: true,
     close: true
-  }
+  },
+  singleInstance: true
 }

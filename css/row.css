@@ -42,8 +42,20 @@
   opacity: 0.5;
 }
 
+#ProcessManager div.row:not(.header) div.segment.pid {
+  transform: translate(-34px);
+}
+
+#ProcessManager div.row div.segment.pid:not(.flagged) img {
+  opacity: 0;
+  pointer-events: none;
+}
+
 #ProcessManager div.row div.segment.pid {
   width: 100px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 #ProcessManager div.row div.segment.app-id {

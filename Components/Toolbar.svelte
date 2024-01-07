@@ -31,6 +31,10 @@
     focusedPid.set(proc.pid);
   }
 
+  function close() {
+    ProcessStack.kill(runtime.process.pid);
+  }
+
   async function kill() {
     const name = proc.app ? proc.app.metadata.name : proc.name;
     createErrorDialog(
@@ -60,16 +64,23 @@
   }
 </script>
 
-<div class="toolbar">
-  <div class="left">
-    <button class="run">Run...</button>
-    <p class="running">{amount} running tasks</p>
+{#if runtime}
+  <div class="toolbar">
+    <div class="left">
+      <button class="run">Run...</button>
+      <p class="running">{amount} running tasks</p>
+    </div>
+    <div class="right">
+      <button disabled={!proc || !proc.app} on:click={info}>App Info</button>
+      <button disabled={!proc || !proc.app} on:click={focus}>Focus</button>
+      <div class="sep" />
+      <button class="suggested" on:click={kill} disabled={!proc}>
+        Kill {proc && proc.app ? "App" : "Process"}
+      </button>
+      {#if runtime.app && runtime.app.isOverlay}
+        <div class="sep" />
+        <button class="close" on:click={close}>Done</button>
+      {/if}
+    </div>
   </div>
-  <div class="right">
-    <button disabled={!proc || !proc.app} on:click={info}>App Info</button>
-    <button disabled={!proc || !proc.app} on:click={focus}>Focus</button>
-    <button class="suggested" on:click={kill} disabled={!proc}>
-      Kill {proc && proc.app ? "App" : "Process"}
-    </button>
-  </div>
-</div>
+{/if}

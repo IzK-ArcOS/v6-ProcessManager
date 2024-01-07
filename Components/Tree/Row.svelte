@@ -5,6 +5,8 @@
   import { ProcessMap } from "$types/process";
   import { onMount } from "svelte";
   import Row from "./Row.svelte";
+  import { focusedPid } from "$ts/stores/apps";
+  import { FlagIcon } from "$ts/images/general";
 
   export let handler: ProcessHandler;
   export let pid: number;
@@ -49,7 +51,10 @@
     <div class="segment name">
       <img src={icon} alt="" /><span>{name}</span>
     </div>
-    <div class="segment pid">{pid}</div>
+    <div class="segment pid" class:flagged={proc.pid == $focusedPid}>
+      <img src={FlagIcon} alt="" class="flag" />
+      <span>{pid}</span>
+    </div>
     <div class="segment app-id">{appId}</div>
   </div>
 

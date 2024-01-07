@@ -1,4 +1,4 @@
-# Process Manager
+# Processes
 
 This repository is a submodule of [ArcOS v6](https://github.com/IzK-ArcOS/v6). It references APIs and code from the parent codebase to function, and will therefor not run outside of ArcOS itself.
 

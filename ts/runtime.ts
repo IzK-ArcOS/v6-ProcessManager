@@ -8,5 +8,13 @@ export class Runtime extends AppRuntime {
 
   constructor(app: App, mutator: AppMutator, process: Process) {
     super(app, mutator, process);
+
+    process.accelerator.store.push({
+      key: "escape",
+      action() {
+        if (app.isOverlay)
+          process.handler.kill(process.pid);
+      }
+    })
   }
 }

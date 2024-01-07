@@ -21,3 +21,14 @@
 #ProcessManager div.toolbar button:not(.suggested) {
   background-color: var(--button-glass-bg);
 }
+
+#ProcessManager div.toolbar div.sep {
+  width: 1px;
+  height: 20px;
+  background-color: var(--button-glass-bg);
+}
+
+#ProcessManager div.toolbar button.close {
+  color: var(--clr-green-bg);
+  background-color: var(--clr-green-fg);
+}
