@@ -6,6 +6,7 @@
   align-items: center;
   border-top: var(--win-border);
   padding: 0 10px;
+  padding-left: 20px;
 }
 #ProcessManager div.toolbar > div {
   display: flex;
@@ -31,4 +32,7 @@
 #ProcessManager div.toolbar button.close {
   color: var(--clr-green-bg);
   background-color: var(--clr-green-fg);
+}
+#ProcessManager div.toolbar p.running {
+  opacity: 0.5;
 }
