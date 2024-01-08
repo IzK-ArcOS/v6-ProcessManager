@@ -67,7 +67,6 @@
 {#if runtime}
   <div class="toolbar">
     <div class="left">
-      <button class="run">Run...</button>
       <p class="running">{amount} running tasks</p>
     </div>
     <div class="right">
