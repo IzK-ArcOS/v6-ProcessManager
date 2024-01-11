@@ -1,12 +1,12 @@
 <script lang="ts">
   import { Runtime } from "$apps/ProcessManager/ts/runtime";
   import { DefaultIcon } from "$ts/images/apps";
+  import { FlagIcon } from "$ts/images/general";
   import { Process, ProcessHandler } from "$ts/process";
+  import { focusedPid } from "$ts/stores/apps";
   import { ProcessMap } from "$types/process";
   import { onMount } from "svelte";
   import Row from "./Row.svelte";
-  import { focusedPid } from "$ts/stores/apps";
-  import { FlagIcon } from "$ts/images/general";
 
   export let handler: ProcessHandler;
   export let pid: number;
