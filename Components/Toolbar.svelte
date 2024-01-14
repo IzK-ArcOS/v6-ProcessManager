@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getAppById, spawnOverlay } from "$ts/apps";
-  import { WarningIcon } from "$ts/images/dialog";
+  import { ErrorIcon, WarningIcon } from "$ts/images/dialog";
   import { Process } from "$ts/process";
   import { createErrorDialog } from "$ts/process/error";
   import { focusedPid } from "$ts/stores/apps";
@@ -35,6 +35,21 @@
     ProcessStack.kill(runtime.process.pid);
   }
 
+  function killError(name: string) {
+    createErrorDialog(
+      {
+        title: `Couldn't kill ${name}!`,
+        message:
+          "An error occured while trying to end the process. It might be a critical process that ArcOS needs to function properly.",
+        buttons: [{ caption: "Okay", action() {}, suggested: true }],
+        image: ErrorIcon,
+        sound: "arcos.dialog.error",
+      },
+      runtime.process.pid,
+      true
+    );
+  }
+
   async function kill() {
     const name = proc.app ? proc.app.metadata.name : proc.name;
     createErrorDialog(
@@ -49,7 +64,9 @@
             caption: "End process",
             async action() {
               if (!proc) return;
-              await ProcessStack.kill(proc.pid);
+              const killed = await ProcessStack.kill(proc.pid);
+
+              if (!killed) killError(name);
 
               runtime.selected.set(null);
             },
