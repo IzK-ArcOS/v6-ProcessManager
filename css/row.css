@@ -13,6 +13,7 @@
   border-radius: 6px;
   gap: 10px;
   background-color: transparent;
+  height: 34px;
 }
 
 #ProcessManager div.row.selected {
@@ -28,7 +29,6 @@
 }
 
 #ProcessManager div.row div.segment.name {
-  margin-right: auto;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -42,7 +42,7 @@
   opacity: 0.5;
 }
 
-#ProcessManager div.row:not(.header) div.segment.pid {
+#ProcessManager div.row:not(.service):not(.header) div.segment.pid {
   transform: translate(-34px);
 }
 
@@ -52,10 +52,28 @@
 }
 
 #ProcessManager div.row div.segment.pid {
-  width: 100px;
+  width: 70px;
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+#ProcessManager div.row:not(.service) div.segment.name {
+  margin-right: auto;
+}
+
+#ProcessManager div.row div.segment.description {
+  width: fit-content;
+  width: 40%;
+  margin-left: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#ProcessManager div.row div.segment.status {
+  text-align: left;
+  width: 70px;
 }
 
 #ProcessManager div.row div.segment.app-id {
@@ -70,6 +88,7 @@
   font-weight: bold;
   margin-bottom: 10px;
   padding: 0 10px;
+  padding-left: 5px;
   height: 20px;
   margin-right: 8px;
 }

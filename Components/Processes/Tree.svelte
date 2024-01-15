@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ProcessStack } from "$ts/stores/process";
   import { ProcessMap } from "$types/process";
-  import { Runtime } from "../ts/runtime";
+  import { Runtime } from "$apps/ProcessManager/ts/runtime";
   import Row from "./Tree/Row.svelte";
 
   export let handler = ProcessStack;

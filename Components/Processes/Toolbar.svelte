@@ -6,7 +6,7 @@
   import { focusedPid } from "$ts/stores/apps";
   import { ProcessStack } from "$ts/stores/process";
   import { sleep } from "$ts/util";
-  import { Runtime } from "../ts/runtime";
+  import { Runtime } from "$apps/ProcessManager/ts/runtime";
 
   export let runtime: Runtime;
 

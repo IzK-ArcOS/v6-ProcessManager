@@ -13,14 +13,19 @@ window#ProcessManager > div.titlebar {
   border-bottom: var(--win-border);
 }
 
-window#ProcessManager > div.body > div.top {
+window#ProcessManager > div.body > div.tab-interface div.top {
   height: calc(100% - 51px);
   padding: 20px;
   padding-bottom: 0;
   padding-right: 12px;
 }
 
-window#ProcessManager > div.body > div.top div.process-tree {
+window#ProcessManager > div.body > div.tab-interface,
+window#ProcessManager > div.body > div.tab-interface > div.renderer {
+  flex-grow: 1;
+}
+
+window#ProcessManager > div.body > div.tab-interface div.top div.process-tree {
   height: calc(100% - 30px);
   overflow-y: scroll;
   padding-bottom: 20px;

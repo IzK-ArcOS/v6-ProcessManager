@@ -1,15 +1,30 @@
 <script lang="ts">
-  import Header from "./Components/Header.svelte";
-  import Toolbar from "./Components/Toolbar.svelte";
-  import Tree from "./Components/Tree.svelte";
+  import Tabs from "$state/Desktop/Components/ProcessRenderer/Window/Tabs.svelte";
+  import Tab from "$state/Desktop/Components/ProcessRenderer/Window/Tabs/Tab.svelte";
+  import { onMount } from "svelte";
+  import Processes from "./Components/Processes.svelte";
+  import Services from "./Components/Services.svelte";
   import "./css/main.css";
   import { Runtime } from "./ts/runtime";
+  import { ProcessStack } from "$ts/stores/process";
 
   export let runtime: Runtime;
+  let current: string;
+
+  onMount(() => {
+    if (runtime.process.args && typeof runtime.process.args[0] == "string")
+      current = runtime.process.args[0];
+
+    ProcessStack.dispatch.subscribe(runtime.pid, "change-tab", (data) => {
+      console.log(data);
+      current = data[0];
+    });
+  });
 </script>
 
-<div class="top">
-  <Header />
-  <Tree {runtime} />
-</div>
-<Toolbar {runtime} />
+<Tabs tabs={["Processes", "Services", "Users", "Servers"]} bind:current>
+  <div class="renderer" slot="renderer">
+    <Tab {current} selector="Processes"><Processes {runtime} /></Tab>
+    <Tab {current} selector="Services"><Services {runtime} bind:current /></Tab>
+  </div>
+</Tabs>
