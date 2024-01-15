@@ -7,6 +7,7 @@
   import "./css/main.css";
   import { Runtime } from "./ts/runtime";
   import { ProcessStack } from "$ts/stores/process";
+  import Users from "./Components/Users.svelte";
 
   export let runtime: Runtime;
   let current: string;
@@ -26,5 +27,6 @@
   <div class="renderer" slot="renderer">
     <Tab {current} selector="Processes"><Processes {runtime} /></Tab>
     <Tab {current} selector="Services"><Services {runtime} bind:current /></Tab>
+    <Tab {current} selector="Users"><Users /></Tab>
   </div>
 </Tabs>

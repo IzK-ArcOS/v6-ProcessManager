@@ -1,0 +1,32 @@
+#ProcessManager div.top.users div.header {
+  display: flex;
+  height: 50px;
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+#ProcessManager div.top.users div.header div.search-field {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px;
+  background-color: var(--button-bg);
+  height: 30px;
+  border-radius: 6px;
+  width: 200px;
+  margin-left: auto;
+}
+
+#ProcessManager div.top.users div.header div.search-field input {
+  padding: 0;
+  border: none;
+  flex-grow: 1;
+  box-shadow: none;
+  width: 0;
+  flex-grow: 1;
+  background-color: var(--button-bg);
+}
+
+#ProcessManager div.top.users div.header div.search-field span.icon {
+  font-size: 16px;
+}

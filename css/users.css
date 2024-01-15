@@ -1,0 +1,27 @@
+@import url("./users/header.css");
+
+#ProcessManager div.user-list {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  height: calc(100% - 70px);
+}
+
+#ProcessManager div.user-list div.user {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  gap: 10px;
+  border-radius: 6px;
+  padding: 5px;
+}
+
+#ProcessManager div.user-list div.user span.role {
+  margin-left: auto;
+  opacity: 0.5;
+}
+
+#ProcessManager div.user-list div.user img {
+  height: 24px;
+  border-radius: 12px;
+}
