@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Runtime } from "$apps/ProcessManager/ts/runtime";
+  import { WindowSettingsIcon } from "$ts/images/general";
   import { GlobalDispatch } from "$ts/process/dispatch/global";
   import { getService } from "$ts/service/interact";
   import { Service } from "$types/service";
@@ -32,7 +33,10 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 {#if service}
   <div class="row service" class:selected on:click={select}>
-    <div class="segment name">{service.name}</div>
+    <div class="segment name">
+      <img src={WindowSettingsIcon} alt="" />
+      <span>{service.name}</span>
+    </div>
     <div class="segment description">{service.description}</div>
     <div class="segment pid">{service.pid || "-"}</div>
     <div class="segment status">{service.pid ? "Running" : "Stopped"}</div>

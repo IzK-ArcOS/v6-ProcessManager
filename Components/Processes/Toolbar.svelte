@@ -34,7 +34,7 @@
   }
 
   function close() {
-    ProcessStack.kill(runtime.process.pid);
+    ProcessStack.kill(runtime.process.pid, true);
   }
 
   function killError(name: string) {
@@ -53,7 +53,10 @@
   }
 
   async function kill() {
-    const elevation = await GetUserElevation(ElevationKillProcess(proc));
+    const elevation = await GetUserElevation(
+      ElevationKillProcess(proc),
+      ProcessStack
+    );
 
     if (!elevation) return;
 
@@ -71,7 +74,8 @@
             caption: "End process",
             async action() {
               if (!proc) return;
-              const killed = await ProcessStack.kill(proc.pid);
+
+              const killed = await ProcessStack.kill(proc.pid, true);
 
               if (!killed) killError(name);
 

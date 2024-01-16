@@ -14,7 +14,7 @@ export class Runtime extends AppRuntime {
       key: "escape",
       action() {
         if (app.isOverlay)
-          process.handler.kill(process.pid);
+          process.handler.kill(process.pid, true);
       }
     })
   }

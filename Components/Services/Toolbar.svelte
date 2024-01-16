@@ -37,7 +37,7 @@
   });
 
   function close() {
-    ProcessStack.kill(runtime.process.pid);
+    ProcessStack.kill(runtime.process.pid, true);
   }
 
   async function flip() {
@@ -56,22 +56,14 @@
   }
 
   function openServiceInfo() {
-    spawnOverlay(getAppById("ArcTerm"), runtime.pid, [
-      [
-        `verbose --off`,
-        `service status ${selected}`,
-        `echo " "`,
-        `pause`,
-        `exit`,
-      ],
-    ]);
+    spawnOverlay(getAppById("ServiceInfo"), runtime.pid, [selected]);
   }
 </script>
 
 {#if runtime}
   <div class="toolbar">
     <div class="left">
-      <p class="running">{amount} running services</p>
+      <p class="running">{amount} total services</p>
     </div>
     <div class="right">
       <button on:click={openServiceInfo}>Service Info</button>

@@ -8,6 +8,7 @@
   import { Runtime } from "./ts/runtime";
   import { ProcessStack } from "$ts/stores/process";
   import Users from "./Components/Users.svelte";
+  import Security from "./Components/Security.svelte";
 
   export let runtime: Runtime;
   let current: string;
@@ -23,10 +24,11 @@
   });
 </script>
 
-<Tabs tabs={["Processes", "Services", "Users", "Servers"]} bind:current>
+<Tabs tabs={["Processes", "Services", "Users", "Security"]} bind:current>
   <div class="renderer" slot="renderer">
     <Tab {current} selector="Processes"><Processes {runtime} /></Tab>
     <Tab {current} selector="Services"><Services {runtime} bind:current /></Tab>
     <Tab {current} selector="Users"><Users /></Tab>
+    <Tab {current} selector="Security"><Security /></Tab>
   </div>
 </Tabs>
