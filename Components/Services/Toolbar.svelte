@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Runtime } from "$apps/ProcessManager/ts/runtime";
-  import { getAppById, spawnApp, spawnOverlay } from "$ts/apps";
+  import { getAppById, spawnOverlay } from "$ts/apps";
   import { GlobalDispatch } from "$ts/process/dispatch/global";
   import {
     getAllServices,
@@ -40,12 +40,12 @@
     ProcessStack.kill(runtime.process.pid);
   }
 
-  function flip() {
+  async function flip() {
     if (data.pid) stopService(selected);
     else startService(selected);
   }
 
-  function restart() {
+  async function restart() {
     restartService(selected);
   }
 

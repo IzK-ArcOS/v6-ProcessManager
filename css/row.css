@@ -5,7 +5,7 @@
   gap: 5px;
 }
 
-#ProcessManager div.row {
+#ProcessManager > div.body div.row {
   display: flex;
   align-items: center;
   width: 100%;
@@ -16,53 +16,53 @@
   height: 34px;
 }
 
-#ProcessManager div.row.selected {
+#ProcessManager > div.body div.row.selected {
   background-color: var(--accent-transparent);
 }
 
-#ProcessManager div.row.selected:hover {
+#ProcessManager > div.body div.row.selected:hover {
   background-color: var(--accent-light-transparent);
 }
 
-#ProcessManager div.row:not(.header):not(.selected):hover {
+#ProcessManager > div.body div.row:not(.header):not(.selected):hover {
   background-color: var(--button-bg);
 }
 
-#ProcessManager div.row div.segment.name {
+#ProcessManager > div.body div.row div.segment.name {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-#ProcessManager div.row div.segment.name img {
+#ProcessManager > div.body div.row div.segment.name img {
   height: 24px;
 }
 
-#ProcessManager div.row:not(.header) div.segment:not(.name) {
+#ProcessManager > div.body div.row:not(.header) div.segment:not(.name) {
   opacity: 0.5;
 }
 
-#ProcessManager div.row:not(.service):not(.header) div.segment.pid {
+#ProcessManager > div.body div.row:not(.service):not(.header) div.segment.pid {
   transform: translate(-34px);
 }
 
-#ProcessManager div.row div.segment.pid:not(.flagged) img {
+#ProcessManager > div.body div.row div.segment.pid:not(.flagged) img {
   opacity: 0;
   pointer-events: none;
 }
 
-#ProcessManager div.row div.segment.pid {
+#ProcessManager > div.body div.row div.segment.pid {
   width: 70px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-#ProcessManager div.row:not(.service) div.segment.name {
+#ProcessManager > div.body div.row:not(.service) div.segment.name {
   margin-right: auto;
 }
 
-#ProcessManager div.row div.segment.description {
+#ProcessManager > div.body div.row div.segment.description {
   width: fit-content;
   width: 40%;
   margin-left: auto;
@@ -71,20 +71,20 @@
   white-space: nowrap;
 }
 
-#ProcessManager div.row div.segment.status {
+#ProcessManager > div.body div.row div.segment.status {
   text-align: left;
   width: 70px;
 }
 
-#ProcessManager div.row div.segment.app-id {
+#ProcessManager > div.body div.row div.segment.app-id {
   width: 150px;
 }
 
-#ProcessManager div.indent {
+#ProcessManager > div.body div.indent {
   padding-left: 25px;
 }
 
-#ProcessManager div.row.header {
+#ProcessManager > div.body div.row.header {
   font-weight: bold;
   margin-bottom: 10px;
   padding: 0 10px;

@@ -15,19 +15,27 @@ window#ProcessManager > div.titlebar {
 }
 
 window#ProcessManager > div.body > div.tab-interface div.top {
-  height: calc(100% - 51px);
+  height: calc(100%);
   padding: 20px;
   padding-bottom: 0;
   padding-right: 12px;
+  max-height: calc(100%);
 }
 
 window#ProcessManager > div.body > div.tab-interface,
 window#ProcessManager > div.body > div.tab-interface > div.renderer {
   flex-grow: 1;
+  height: calc(100% - 50px);
+  max-height: calc(100% - 50px);
 }
 
 window#ProcessManager > div.body > div.tab-interface div.top div.process-tree {
   height: calc(100% - 30px);
   overflow-y: scroll;
   padding-bottom: 20px;
+}
+
+window#ProcessManager > div.body > div.tab-interface div.tab.visible {
+  display: block;
+  height: 100%;
 }

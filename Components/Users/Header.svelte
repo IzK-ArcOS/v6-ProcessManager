@@ -4,6 +4,7 @@
   import { onMount } from "svelte";
   import Fuse from "fuse.js";
   import { ConnectedServer } from "$ts/stores/server";
+  import { sleep } from "$ts/util";
 
   let users: PartialUser[] = [];
   export let filtered: PartialUser[] = [];
@@ -16,7 +17,7 @@
   });
 
   function filter() {
-    if (!search) return (filtered = users);
+    if (!search) return updateFiltered(users);
 
     const options: Fuse.IFuseOptions<PartialUser> = {
       includeScore: true,
@@ -25,9 +26,15 @@
     };
     const fuse = new Fuse(users, options);
 
-    filtered = fuse.search(search).map((v) => v.item);
+    updateFiltered(fuse.search(search).map((v) => v.item));
+  }
 
-    console.log(filtered);
+  async function updateFiltered(data: PartialUser[]) {
+    filtered = [];
+    await sleep(1);
+    filtered = data.sort((a, b) =>
+      a.username.toLowerCase() < b.username.toLowerCase() ? -1 : 1
+    );
   }
 </script>
 

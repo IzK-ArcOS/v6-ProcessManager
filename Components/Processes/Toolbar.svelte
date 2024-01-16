@@ -7,6 +7,8 @@
   import { ProcessStack } from "$ts/stores/process";
   import { sleep } from "$ts/util";
   import { Runtime } from "$apps/ProcessManager/ts/runtime";
+  import { GetUserElevation } from "$ts/elevation";
+  import { ElevationKillProcess } from "$ts/stores/elevation";
 
   export let runtime: Runtime;
 
@@ -51,7 +53,12 @@
   }
 
   async function kill() {
+    const elevation = await GetUserElevation(ElevationKillProcess(proc));
+
+    if (!elevation) return;
+
     const name = proc.app ? proc.app.metadata.name : proc.name;
+
     createErrorDialog(
       {
         title: `Do you want to end ${name}?`,
