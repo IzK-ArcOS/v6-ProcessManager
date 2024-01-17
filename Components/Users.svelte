@@ -10,3 +10,4 @@
   <Header bind:filtered />
   <List {filtered} />
 </div>
+<div class="toolbar"></div>

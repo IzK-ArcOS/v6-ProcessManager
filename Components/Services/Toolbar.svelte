@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Runtime } from "$apps/ProcessManager/ts/runtime";
+  import ElevatedButton from "$lib/Components/ElevatedButton.svelte";
   import HtmlSpinner from "$lib/Components/HtmlSpinner.svelte";
   import { getAppById, spawnOverlay } from "$ts/apps";
   import { GlobalDispatch } from "$ts/process/dispatch/global";
@@ -81,30 +82,31 @@
     <div class="right">
       <button on:click={openServiceInfo}>Service Info</button>
       <button on:click={gotoProcess}>Go to process</button>
-      <div class="sep"></div>
-      <button
-        on:click={restart}
+      <div class="sep" />
+
+      <ElevatedButton
+        click={restart}
         disabled={!selected || restarting}
-        class="restart"
+        className="restart"
       >
         {#if !restarting}
-          Restart Service
+          Restart
         {:else}
           <HtmlSpinner height={16} />
         {/if}
-      </button>
-      <button
-        class:running={data && data.pid}
-        on:click={flip}
+      </ElevatedButton>
+      <ElevatedButton
+        click={flip}
         disabled={!selected || flipping}
-        class="flip"
+        className="flip {data && data.pid ? 'running' : ''}"
       >
         {#if !flipping}
-          {data && data.pid ? "Stop Service" : "Start Service"}
+          {data && data.pid ? "Stop" : "Start"}
         {:else}
           <HtmlSpinner height={16} />
         {/if}
-      </button>
+      </ElevatedButton>
+
       {#if runtime.app && runtime.app.isOverlay}
         <div class="sep" />
         <button class="close" on:click={close}>Done</button>

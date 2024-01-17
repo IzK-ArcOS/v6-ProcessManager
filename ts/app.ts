@@ -30,5 +30,6 @@ export const ProcessManager: App = {
     maximize: true,
     close: true
   },
-  singleInstance: true
+  singleInstance: true,
+  glass: true
 }

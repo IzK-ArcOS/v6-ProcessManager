@@ -8,12 +8,20 @@ window#ProcessManager > div.body {
   flex-direction: column;
   padding: 0;
   overflow: hidden;
-  background-color: var(--win-bg);
 }
 
+#ProcessManager {
+  --p: 5px;
+}
+
+#ProcessManager.overlay {
+  --p: 20px;
+}
+
+/* 
 window#ProcessManager > div.titlebar {
   border-bottom: var(--win-border);
-}
+} */
 
 window#ProcessManager > div.body > div.tab-interface div.top {
   height: calc(100%);
@@ -21,13 +29,23 @@ window#ProcessManager > div.body > div.tab-interface div.top {
   padding-bottom: 0;
   padding-right: 12px;
   max-height: calc(100%);
+  background-color: var(--win-bg);
+}
+
+window#ProcessManager > div.body > div.tab-interface div.tabs {
+  padding-top: var(--p);
 }
 
 window#ProcessManager > div.body > div.tab-interface,
 window#ProcessManager > div.body > div.tab-interface > div.renderer {
+  height: calc(100% - 80px - var(--p));
+  max-height: calc(100%);
+}
+
+window#ProcessManager > div.body > div.tab-interface {
   flex-grow: 1;
-  height: calc(100% - 50px);
-  max-height: calc(100% - 50px);
+  height: 100%;
+  min-height: 100%;
 }
 
 window#ProcessManager > div.body > div.tab-interface div.top div.process-tree {
