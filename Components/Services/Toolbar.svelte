@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Runtime } from "$apps/ProcessManager/ts/runtime";
+  import HtmlSpinner from "$lib/Components/HtmlSpinner.svelte";
   import { getAppById, spawnOverlay } from "$ts/apps";
   import { GlobalDispatch } from "$ts/process/dispatch/global";
   import {
@@ -9,6 +10,10 @@
     startService,
     stopService,
   } from "$ts/service/interact";
+  import {
+    startServiceNotified,
+    stopServiceNotified,
+  } from "$ts/service/wrapper";
   import { ProcessStack } from "$ts/stores/process";
   import { Service } from "$types/service";
 
@@ -18,6 +23,8 @@
   let amount = 0;
   let selected: string;
   let data: Service;
+  let flipping = false;
+  let restarting = false;
 
   function update() {
     data = getService(selected);
@@ -41,12 +48,18 @@
   }
 
   async function flip() {
-    if (data.pid) stopService(selected);
-    else startService(selected);
+    flipping = true;
+
+    if (data.pid) await stopServiceNotified(selected);
+    else await startServiceNotified(selected);
+
+    flipping = false;
   }
 
   async function restart() {
-    restartService(selected);
+    restarting = true;
+    await restartService(selected);
+    restarting = false;
   }
 
   function gotoProcess() {
@@ -69,16 +82,28 @@
       <button on:click={openServiceInfo}>Service Info</button>
       <button on:click={gotoProcess}>Go to process</button>
       <div class="sep"></div>
-      <button on:click={restart} disabled={!selected} class="restart">
-        Restart Service
+      <button
+        on:click={restart}
+        disabled={!selected || restarting}
+        class="restart"
+      >
+        {#if !restarting}
+          Restart Service
+        {:else}
+          <HtmlSpinner height={16} />
+        {/if}
       </button>
       <button
         class:running={data && data.pid}
         on:click={flip}
-        disabled={!selected}
+        disabled={!selected || flipping}
         class="flip"
       >
-        {data && data.pid ? "Stop Service" : "Start Service"}
+        {#if !flipping}
+          {data && data.pid ? "Stop Service" : "Start Service"}
+        {:else}
+          <HtmlSpinner height={16} />
+        {/if}
       </button>
       {#if runtime.app && runtime.app.isOverlay}
         <div class="sep" />

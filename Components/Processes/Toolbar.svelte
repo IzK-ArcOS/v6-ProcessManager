@@ -9,6 +9,8 @@
   import { Runtime } from "$apps/ProcessManager/ts/runtime";
   import { GetUserElevation } from "$ts/elevation";
   import { ElevationKillProcess } from "$ts/stores/elevation";
+  import { ProcessKillResult } from "$types/process";
+  import { ProcessKillResultCaptions } from "$ts/stores/process/captions";
 
   export let runtime: Runtime;
 
@@ -37,12 +39,13 @@
     ProcessStack.kill(runtime.process.pid, true);
   }
 
-  function killError(name: string) {
+  function killError(name: string, status: ProcessKillResult) {
+    const caption = ProcessKillResultCaptions[status];
+
     createErrorDialog(
       {
         title: `Couldn't kill ${name}!`,
-        message:
-          "An error occured while trying to end the process. It might be a critical process that ArcOS needs to function properly.",
+        message: `An error occured while trying to end the process. ${caption}`,
         buttons: [{ caption: "Okay", action() {}, suggested: true }],
         image: ErrorIcon,
         sound: "arcos.dialog.error",
@@ -75,9 +78,9 @@
             async action() {
               if (!proc) return;
 
-              const killed = await ProcessStack.kill(proc.pid, true);
+              const status = await ProcessStack.kill(proc.pid, true);
 
-              if (!killed) killError(name);
+              if (status !== "success") killError(name, status);
 
               runtime.selected.set(null);
             },
