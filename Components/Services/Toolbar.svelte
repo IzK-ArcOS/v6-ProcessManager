@@ -83,29 +83,29 @@
       <button on:click={openServiceInfo}>Service Info</button>
       <button on:click={gotoProcess}>Go to process</button>
       <div class="sep" />
-
-      <ElevatedButton
-        click={restart}
+      <button
+        class="restart"
+        on:click={restart}
         disabled={!selected || restarting}
-        className="restart"
       >
         {#if !restarting}
           Restart
         {:else}
           <HtmlSpinner height={16} />
         {/if}
-      </ElevatedButton>
-      <ElevatedButton
-        click={flip}
+      </button>
+      <button
+        class="flip"
+        class:running={data && data.pid}
+        on:click={flip}
         disabled={!selected || flipping}
-        className="flip {data && data.pid ? 'running' : ''}"
       >
         {#if !flipping}
           {data && data.pid ? "Stop" : "Start"}
         {:else}
           <HtmlSpinner height={16} />
         {/if}
-      </ElevatedButton>
+      </button>
 
       {#if runtime.app && runtime.app.isOverlay}
         <div class="sep" />

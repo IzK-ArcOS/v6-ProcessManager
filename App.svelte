@@ -18,7 +18,6 @@
       current = runtime.process.args[0];
 
     ProcessStack.dispatch.subscribe(runtime.pid, "change-tab", (data) => {
-      console.log(data);
       current = data[0];
     });
   });

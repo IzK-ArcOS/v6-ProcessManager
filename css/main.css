@@ -30,6 +30,8 @@ window#ProcessManager > div.body > div.tab-interface div.top {
   padding-right: 12px;
   max-height: calc(100%);
   background-color: var(--win-bg);
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 window#ProcessManager > div.body > div.tab-interface div.tabs {

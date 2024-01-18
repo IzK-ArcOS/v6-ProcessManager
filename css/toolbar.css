@@ -36,7 +36,7 @@
 }
 
 #ProcessManager div.toolbar button.flip {
-  width: 105px;
+  width: 90px;
 }
 
 #ProcessManager div.toolbar p.running {
@@ -51,5 +51,5 @@
 #ProcessManager div.toolbar button.restart {
   background-color: var(--clr-orange-fg);
   color: var(--clr-orange-bg);
-  width: 120px;
+  width: 90px;
 }
