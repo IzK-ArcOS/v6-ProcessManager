@@ -9,7 +9,8 @@ export const ProcessManager: App = {
     description: "Manage running processes",
     author: "The ArcOS Team",
     version: "2.0.0",
-    icon: ProcessManagerIcon
+    icon: ProcessManagerIcon,
+    appGroup: "systemTools"
   },
   runtime: Runtime,
   content: AppSvelte,
