@@ -14,10 +14,12 @@
 
   export let runtime: Runtime;
 
+  const { selected } = runtime;
+
   let proc: Process;
   let amount = 0;
 
-  runtime.selected.subscribe((v) => {
+  selected.subscribe((v) => {
     proc = ProcessStack.getProcess(v);
   });
 

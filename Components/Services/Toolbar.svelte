@@ -31,7 +31,9 @@
     data = getService(selected);
   }
 
-  runtime.selectedService.subscribe((v) => {
+  const { selectedService } = runtime;
+
+  selectedService.subscribe((v) => {
     selected = v;
     update();
   });

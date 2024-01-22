@@ -9,10 +9,12 @@
   export let runtime: Runtime;
   export let id: string;
 
+  const { selectedService } = runtime;
+
   let service: Service;
   let selected = false;
 
-  runtime.selectedService.subscribe((v) => {
+  selectedService.subscribe((v) => {
     selected = v == id;
     update();
   });

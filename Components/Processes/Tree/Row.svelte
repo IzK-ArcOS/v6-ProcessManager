@@ -13,6 +13,8 @@
   export let proc: Process;
   export let runtime: Runtime;
 
+  const { selected: selectedStore } = runtime;
+
   let selected = false;
   let children: ProcessMap;
   let icon = DefaultIcon;
@@ -31,7 +33,7 @@
     name = proc.name;
   });
 
-  runtime.selected.subscribe((v) => {
+  selectedStore.subscribe((v) => {
     selected = v == pid;
   });
 
