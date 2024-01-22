@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Runtime } from "$apps/ProcessManager/ts/runtime";
-  import ElevatedButton from "$lib/Components/ElevatedButton.svelte";
   import HtmlSpinner from "$lib/Components/HtmlSpinner.svelte";
   import { getAppById, spawnOverlay } from "$ts/apps";
   import { GlobalDispatch } from "$ts/process/dispatch/global";
@@ -8,8 +7,6 @@
     getAllServices,
     getService,
     restartService,
-    startService,
-    stopService,
   } from "$ts/service/interact";
   import {
     startServiceNotified,

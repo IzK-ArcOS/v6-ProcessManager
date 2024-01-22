@@ -1,16 +1,16 @@
 <script lang="ts">
+  import { Runtime } from "$apps/ProcessManager/ts/runtime";
   import { getAppById, spawnOverlay } from "$ts/apps";
+  import { GetUserElevation } from "$ts/elevation";
   import { ErrorIcon, WarningIcon } from "$ts/images/dialog";
   import { Process } from "$ts/process";
   import { createErrorDialog } from "$ts/process/error";
   import { focusedPid } from "$ts/stores/apps";
-  import { ProcessStack } from "$ts/stores/process";
-  import { sleep } from "$ts/util";
-  import { Runtime } from "$apps/ProcessManager/ts/runtime";
-  import { GetUserElevation } from "$ts/elevation";
   import { ElevationKillProcess } from "$ts/stores/elevation";
-  import { ProcessKillResult } from "$types/process";
+  import { ProcessStack } from "$ts/stores/process";
   import { ProcessKillResultCaptions } from "$ts/stores/process/captions";
+  import { sleep } from "$ts/util";
+  import { ProcessKillResult } from "$types/process";
 
   export let runtime: Runtime;
 

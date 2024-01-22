@@ -1,14 +1,14 @@
 <script lang="ts">
   import Tabs from "$state/Desktop/Components/ProcessRenderer/Window/Tabs.svelte";
   import Tab from "$state/Desktop/Components/ProcessRenderer/Window/Tabs/Tab.svelte";
+  import { ProcessStack } from "$ts/stores/process";
   import { onMount } from "svelte";
   import Processes from "./Components/Processes.svelte";
+  import Security from "./Components/Security.svelte";
   import Services from "./Components/Services.svelte";
+  import Users from "./Components/Users.svelte";
   import "./css/main.css";
   import { Runtime } from "./ts/runtime";
-  import { ProcessStack } from "$ts/stores/process";
-  import Users from "./Components/Users.svelte";
-  import Security from "./Components/Security.svelte";
 
   export let runtime: Runtime;
   let current: string;
