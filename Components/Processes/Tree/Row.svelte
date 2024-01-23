@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Runtime } from "$apps/ProcessManager/ts/runtime";
   import { DefaultIcon } from "$ts/images/apps";
-  import { FlagIcon } from "$ts/images/general";
+  import { ComponentIcon, FlagIcon } from "$ts/images/general";
   import { Process, ProcessHandler } from "$ts/process";
   import { focusedPid } from "$ts/stores/apps";
   import { ProcessMap } from "$types/process";
@@ -29,6 +29,8 @@
 
       return;
     }
+
+    if (proc.name.startsWith("svc#")) icon = ComponentIcon;
 
     name = proc.name;
   });

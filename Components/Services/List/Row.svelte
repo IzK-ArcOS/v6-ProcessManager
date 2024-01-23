@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Runtime } from "$apps/ProcessManager/ts/runtime";
-  import { WindowSettingsIcon } from "$ts/images/general";
+  import { ComponentIcon } from "$ts/images/general";
   import { GlobalDispatch } from "$ts/process/dispatch/global";
   import { getService } from "$ts/service/interact";
   import { Service } from "$types/service";
@@ -36,7 +36,7 @@
 {#if service}
   <div class="row service" class:selected on:click={select}>
     <div class="segment name">
-      <img src={WindowSettingsIcon} alt="" />
+      <img src={ComponentIcon} alt="" />
       <span>{service.name}</span>
     </div>
     <div class="segment description">{service.description}</div>
