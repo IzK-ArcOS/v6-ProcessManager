@@ -14,6 +14,7 @@
   export let runtime: Runtime;
 
   const { selected: selectedStore } = runtime;
+  const { mutator: app } = proc;
 
   let selected = false;
   let children: ProcessMap;
@@ -22,17 +23,21 @@
   let appId = "";
 
   onMount(() => {
-    if (proc.app) {
-      appId = proc.app.id;
-      name = proc.app.metadata.name;
-      icon = proc.app.metadata.icon;
-
-      return;
-    }
-
     if (proc.name.startsWith("svc#")) icon = ComponentIcon;
 
     name = proc.name;
+
+    if (runtime.app) {
+      app.subscribe((v) => {
+        if (!v) return;
+
+        appId = v.id;
+        name = v.metadata.name;
+        icon = v.metadata.icon;
+      });
+
+      return;
+    }
   });
 
   selectedStore.subscribe((v) => {
