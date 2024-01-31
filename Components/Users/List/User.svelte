@@ -15,5 +15,4 @@
 <div class="user">
   <img src={url} alt={user.username} />
   <span class="username">{user.username}</span>
-  <span class="role">{user.acc.admin ? "Administrator" : "Regular user"}</span>
 </div>

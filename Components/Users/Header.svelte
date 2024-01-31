@@ -22,9 +22,12 @@
     const options: Fuse.IFuseOptions<PartialUser> = {
       includeScore: true,
       keys: ["username"],
-      threshold: 1.4,
     };
-    const fuse = new Fuse(users, options);
+
+    const fuse = new Fuse(
+      users.map((a) => ({ ...a, username: a.username.toLowerCase() })),
+      options
+    );
 
     updateFiltered(fuse.search(search).map((v) => v.item));
   }
