@@ -5,7 +5,7 @@
   import { ErrorIcon, WarningIcon } from "$ts/images/dialog";
   import { Process } from "$ts/process";
   import { createErrorDialog } from "$ts/process/error";
-  import { focusedPid } from "$ts/stores/apps";
+  import { focusedPid } from "$ts/stores/apps/focus";
   import { ElevationKillProcess } from "$ts/stores/elevation";
   import { ProcessStack } from "$ts/stores/process";
   import { ProcessKillResultCaptions } from "$ts/stores/process/captions";
@@ -53,15 +53,12 @@
         sound: "arcos.dialog.error",
       },
       runtime.process.pid,
-      true
+      true,
     );
   }
 
   async function kill() {
-    const elevation = await GetUserElevation(
-      ElevationKillProcess(proc),
-      ProcessStack
-    );
+    const elevation = await GetUserElevation(ElevationKillProcess(proc), ProcessStack);
 
     if (!elevation) return;
 
@@ -92,7 +89,7 @@
         sound: "arcos.dialog.warning",
       },
       runtime.process.pid,
-      true
+      true,
     );
   }
 </script>

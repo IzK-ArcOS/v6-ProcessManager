@@ -3,7 +3,7 @@
   import { DefaultIcon } from "$ts/images/apps";
   import { ComponentIcon, FlagIcon } from "$ts/images/general";
   import { Process, ProcessHandler } from "$ts/process";
-  import { focusedPid } from "$ts/stores/apps";
+  import { focusedPid } from "$ts/stores/apps/focus";
   import { ProcessMap } from "$types/process";
   import { onMount } from "svelte";
   import Row from "./Row.svelte";
