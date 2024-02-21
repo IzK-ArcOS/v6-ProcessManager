@@ -3,15 +3,8 @@
   import HtmlSpinner from "$lib/Components/HtmlSpinner.svelte";
   import { getAppById, spawnOverlay } from "$ts/apps";
   import { GlobalDispatch } from "$ts/process/dispatch/global";
-  import {
-    getAllServices,
-    getService,
-    restartService,
-  } from "$ts/service/interact";
-  import {
-    startServiceNotified,
-    stopServiceNotified,
-  } from "$ts/service/wrapper";
+  import { getAllServices, getService, restartService } from "$ts/service/interact";
+  import { startServiceNotified, stopServiceNotified } from "$ts/service/wrapper";
   import { ProcessStack } from "$ts/stores/process";
   import { Service } from "$types/service";
 
@@ -82,11 +75,7 @@
       <button on:click={openServiceInfo}>Service Info</button>
       <button on:click={gotoProcess}>Go to process</button>
       <div class="sep" />
-      <button
-        class="restart"
-        on:click={restart}
-        disabled={!selected || restarting}
-      >
+      <button class="restart" on:click={restart} disabled={!selected || restarting}>
         {#if !restarting}
           Restart
         {:else}

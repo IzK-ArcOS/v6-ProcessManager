@@ -10,7 +10,7 @@ export const ProcessManager: App = {
     author: "The ArcOS Team",
     version: "2.0.0",
     icon: ProcessManagerIcon,
-    appGroup: "systemTools"
+    appGroup: "systemTools",
   },
   runtime: Runtime,
   content: AppSvelte,
@@ -24,13 +24,13 @@ export const ProcessManager: App = {
     maximized: false,
     headless: false,
     fullscreen: false,
-    resizable: true
+    resizable: true,
   },
   controls: {
     minimize: false,
     maximize: true,
-    close: true
+    close: true,
   },
   singleInstance: true,
-  glass: true
-}
+  glass: true,
+};
