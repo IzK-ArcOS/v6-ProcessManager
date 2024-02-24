@@ -5,3 +5,44 @@
 #ProcessManager div.security-settings h2.title {
   margin-top: 0;
 }
+
+#ProcessManager div.security-settings hr {
+  margin: 15px 0;
+  border: var(--button-hover-bg) 1px solid;
+}
+
+#ProcessManager div.settings-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+#ProcessManager div.settings-option h3.header {
+  margin: 0;
+}
+
+#ProcessManager div.settings-option p.context {
+  margin-bottom: 0;
+  opacity: 0.6;
+}
+
+#ProcessManager div.settings-option div.option-input {
+  margin: 0;
+  margin-left: auto;
+}
+
+#ProcessManager div.settings-option div.option-input select {
+  min-width: 100px;
+  margin: 5px 0;
+  height: 30px;
+  background-color: var(--button-bg);
+}
+
+#ProcessManager div.settings-option div.option-input select:hover {
+  background-color: var(--button-hover-bg);
+}
+
+#ProcessManager div.settings-option div.option-input button {
+  height: 26px;
+  margin: 7px 0;
+}
