@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ProfilePicture from "$lib/Components/ProfilePicture.svelte";
   import { getProfilePicture } from "$ts/stores/pfp";
   import { PartialUser } from "$types/user";
   import { onMount } from "svelte";
@@ -13,6 +14,6 @@
 </script>
 
 <div class="user">
-  <img src={url} alt={user.username} />
+  <ProfilePicture src={url} height={24} />
   <span class="username">{user.username}</span>
 </div>
