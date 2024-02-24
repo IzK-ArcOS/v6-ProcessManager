@@ -21,6 +21,10 @@
       current = data[0];
     });
   });
+
+  function closeThis() {
+    runtime.closeApp();
+  }
 </script>
 
 <Tabs tabs={["Processes", "Services", "Users", "Security"]} bind:current>
@@ -30,4 +34,5 @@
     <Tab {current} selector="Users"><Users /></Tab>
     <Tab {current} selector="Security"><Security /></Tab>
   </div>
+  <button class="close material-icons-round" slot="right" on:click={closeThis}>close</button>
 </Tabs>

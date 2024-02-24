@@ -38,6 +38,22 @@ window#ProcessManager > div.body > div.tab-interface div.tabs {
   padding-top: var(--p);
 }
 
+window#ProcessManager:not(.overlay) > div.body > div.tab-interface div.tabs button.close {
+  display: none;
+}
+
+window#ProcessManager > div.body > div.tab-interface div.tabs button.close {
+  margin: 0;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  font-size: 15px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 window#ProcessManager > div.body > div.tab-interface,
 window#ProcessManager > div.body > div.tab-interface > div.renderer {
   height: calc(100% - 80px - var(--p));
