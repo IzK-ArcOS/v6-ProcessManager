@@ -1,9 +1,36 @@
-#ProcessManager div.security-settings {
+#ProcessManager div.top.security-settings {
   padding: 20px;
+  padding-top: 15px !important;
+  height: calc(100% + 51px) !important;
+  max-height: unset !important;
 }
 
 #ProcessManager div.security-settings h2.title {
   margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: var(--color) 1px solid;
+  --color: var(--clr-green-fg);
+}
+
+#ProcessManager div.security-settings h2.title.lockdown {
+  --color: var(--clr-orange-fg) !important;
+}
+
+#ProcessManager div.security-settings h2.title.bypass {
+  --color: var(--clr-red-fg);
+}
+
+#ProcessManager div.security-settings h2.title.nopass:not(.bypass) {
+  --color: var(--clr-yellow-fg);
+}
+
+#ProcessManager div.security-settings h2.title img {
+  height: 40px;
 }
 
 #ProcessManager div.security-settings hr {
@@ -17,8 +44,16 @@
   margin-bottom: 15px;
 }
 
+#ProcessManager div.settings-option > div {
+  max-width: 75%;
+}
+
 #ProcessManager div.settings-option h3.header {
   margin: 0;
+}
+
+#ProcessManager div.settings-option.disabled {
+  opacity: 0.4;
 }
 
 #ProcessManager div.settings-option p.context {
@@ -45,4 +80,32 @@
 #ProcessManager div.settings-option div.option-input button {
   height: 26px;
   margin: 7px 0;
+}
+
+#ProcessManager div.security-settings div.settings-option.bypass {
+  padding: 15px 20px;
+  background-color: var(--clr-red-bg);
+  border-radius: 10px;
+  border: var(--button-hover-bg) 1px solid;
+  margin: 20px 0;
+}
+
+#ProcessManager div.security-settings div.settings-option.bypass.true {
+  background-color: var(--clr-green-bg);
+}
+
+#ProcessManager div.security-settings div.settings-option.bypass button {
+  padding: 10px 20px;
+  height: fit-content;
+  white-space: nowrap;
+}
+
+#ProcessManager div.security-settings div.settings-option.bypass.true button {
+  background-color: rgba(112, 199, 77) !important;
+  color: #000 !important;
+}
+
+#ProcessManager div.security-settings div.settings-option.bypass:not(.true) button {
+  background-color: rgba(228, 54, 54) !important;
+  color: #fff !important;
 }
