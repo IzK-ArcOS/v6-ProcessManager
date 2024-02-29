@@ -72,8 +72,8 @@
       <p class="running">{amount} total services</p>
     </div>
     <div class="right">
-      <button on:click={openServiceInfo}>Service Info</button>
-      <button on:click={gotoProcess}>Go to process</button>
+      <button on:click={openServiceInfo} disabled={!selected}>Service Info</button>
+      <button on:click={gotoProcess} disabled={!selected}>Go to process</button>
       <div class="sep" />
       <button class="restart" on:click={restart} disabled={!selected || restarting}>
         {#if !restarting}
