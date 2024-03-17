@@ -11,6 +11,7 @@ export const ProcessManager: App = {
     version: "2.0.0",
     icon: ProcessManagerIcon,
     appGroup: "systemTools",
+    dependendsOn: ["AppInfo", "ServiceInfo"],
   },
   runtime: Runtime,
   content: AppSvelte,
