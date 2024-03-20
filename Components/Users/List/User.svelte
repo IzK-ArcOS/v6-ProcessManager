@@ -15,5 +15,7 @@
 
 <div class="user">
   <ProfilePicture src={url} height={24} />
-  <span class="username">{user.username}</span>
+  <span class="username" title={`${user.username} (${user.acc.v6 ? "v6 user" : "normal user"})`}
+    >{user.username}</span
+  >
 </div>

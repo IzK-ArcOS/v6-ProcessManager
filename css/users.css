@@ -5,9 +5,15 @@
 }
 
 #ProcessManager div.user-list {
-  column-count: 3;
+  /* column-count: 3; */
   gap: 5px;
   height: calc(100% - 70px);
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-flow: wrap;
+  justify-content: space-between;
 }
 
 #ProcessManager div.user-list div.user {
@@ -18,6 +24,13 @@
   border-radius: 6px;
   padding: 5px;
   width: fit-content;
+  width: 20%;
+}
+
+#ProcessManager div.user-list div.user span.username {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #ProcessManager div.user-list div.user span.role {
