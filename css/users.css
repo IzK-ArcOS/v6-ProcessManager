@@ -9,11 +9,9 @@
   gap: 5px;
   height: calc(100% - 70px);
   overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  flex-flow: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(auto-fit, 35px);
 }
 
 #ProcessManager div.user-list div.user {
@@ -24,7 +22,6 @@
   border-radius: 6px;
   padding: 5px;
   width: fit-content;
-  width: 20%;
 }
 
 #ProcessManager div.user-list div.user span.username {
