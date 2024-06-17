@@ -4,6 +4,7 @@
   import { getAllServices } from "$ts/service/interact";
   import { ProcessStack } from "$ts/stores/process";
   import { ServiceStore } from "$types/service";
+  import Header from "./Header.svelte";
   import Row from "./List/Row.svelte";
 
   export let runtime: Runtime;
@@ -16,6 +17,7 @@
 </script>
 
 {#if services}
+  <Header />
   <div class="process-tree">
     {#each [...services] as [id, service]}
       <Row {runtime} {id} />
