@@ -84,7 +84,7 @@
 #ProcessManager div.security-settings div.settings-option.bypass {
   padding: 15px 20px;
   background-color: var(--clr-red-bg);
-  border-radius: 10px;
+  border-radius: var(--win-border-rad);
   border: var(--button-hover-bg) 1px solid;
   margin: 20px 0;
 }

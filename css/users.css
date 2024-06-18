@@ -19,7 +19,7 @@
   align-items: center;
   height: 34px;
   gap: 10px;
-  border-radius: 6px;
+  border-radius: var(--button-border-rad);
   padding: 5px;
   width: fit-content;
 }

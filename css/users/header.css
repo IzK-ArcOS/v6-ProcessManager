@@ -18,7 +18,7 @@
   padding: 7px;
   background-color: var(--button-bg);
   height: 30px;
-  border-radius: 6px;
+  border-radius: var(--button-border-rad);
   width: 200px;
   margin-left: auto;
 }
